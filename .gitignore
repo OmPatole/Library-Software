@@ -1,0 +1,38 @@
+# Rust
+/target/
+**/target/
+debug_auto/
+*.rs.bk
+
+# Compiled Binary artifacts
+*.pdb
+*.obj
+*.exe
+*.ilk
+*.lib
+*.exp
+*.map
+*.o
+
+# Security/Environment
+.env
+.env.*
+!.env.example
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Installation files
+rustup-init.exe
+
+# Cargo
+# We keep Cargo.lock for applications to ensure reproducible builds
+# Cargo.lock
