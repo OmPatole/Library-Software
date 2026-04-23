@@ -166,36 +166,9 @@ const IssueTab = ({ onDone }: { onDone: () => void }) => {
           <Input placeholder="Auto-filled on Get Details" value={form.user_name} onChange={(e) => set("user_name", e.target.value)} />
         </Field>
         <div className="grid grid-cols-3 gap-2">
-          <Field label="Course">
-            <Select value={form.course} onChange={(e) => set("course", e.target.value)}>
-              <option value="">Select Course</option>
-              <option value="B.Tech">B.Tech</option>
-              <option value="M.Tech">M.Tech</option>
-            </Select>
-          </Field>
-          <Field label="Branch">
-            <Select value={form.branch} onChange={(e) => set("branch", e.target.value)}>
-              <option value="">Select Branch</option>
-              <option value="Computer Science">Computer Science</option>
-              <option value="Information Technology">Information Technology</option>
-              <option value="Electronics">Electronics</option>
-              <option value="Mechanical">Mechanical</option>
-              <option value="Civil">Civil</option>
-            </Select>
-          </Field>
-          <Field label="Year">
-            <Select value={form.current_year} onChange={(e) => set("current_year", e.target.value)}>
-              <option value="">Select Year</option>
-              <option value="1st Year">1st Year</option>
-              <option value="2nd Year">2nd Year</option>
-              {form.course === "B.Tech" && (
-                <>
-                  <option value="3rd Year">3rd Year</option>
-                  <option value="4th Year">4th Year</option>
-                </>
-              )}
-            </Select>
-          </Field>
+          <Field label="Course"><Input value={form.course} readOnly placeholder="Auto-filled" className="opacity-70" /></Field>
+          <Field label="Branch"><Input value={form.branch} readOnly placeholder="Auto-filled" className="opacity-70" /></Field>
+          <Field label="Year"><Input value={form.current_year} readOnly placeholder="Auto-filled" className="opacity-70" /></Field>
         </div>
         {memberInfo && <div className="flex gap-1"><StatusPill status={memberInfo.is_active ? "Active" : "Inactive"} /></div>}
       </div>
