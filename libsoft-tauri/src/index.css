@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global resets ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden; /* App is a fixed-size desktop window */
+}
+
+body {
+  font-family: 'JetBrains Mono', 'JetBrainsMono Nerd Font', monospace;
+  background-color: theme('colors.surface.950');
+  color: #f0f4ff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar styling ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: theme('colors.surface.900'); }
+::-webkit-scrollbar-thumb {
+  background: theme('colors.surface.600');
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover { background: theme('colors.cobalt.600'); }
+
+/* ── Input base styles ─────────────────────────────────────────────────────── */
+input, select, textarea {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  background-color: theme('colors.surface.800');
+  border: 1px solid theme('colors.surface.500');
+  color: #f0f4ff;
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.625rem;
+  width: 100%;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: theme('colors.cobalt.500');
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+input::placeholder { color: theme('colors.surface.500'); opacity: 1; }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.7;
+  cursor: pointer;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* ── Button base ───────────────────────────────────────────────────────────── */
+.btn {
+  @apply inline-flex items-center justify-center gap-1.5 rounded-md text-xs font-semibold
+         transition-all duration-150 cursor-pointer select-none;
+  letter-spacing: 0.02em;
+}
+
+.btn-primary {
+  @apply btn bg-cobalt-500 text-white hover:bg-cobalt-400 active:bg-cobalt-600
+         shadow-glow-sm hover:shadow-glow px-3 py-1.5;
+}
+
+.btn-ghost {
+  @apply btn bg-transparent text-cobalt-300 border border-surface-500
+         hover:border-cobalt-500 hover:bg-surface-700 px-3 py-1.5;
+}
+
+.btn-danger {
+  @apply btn bg-rose-500 text-white hover:bg-rose-400 px-3 py-1.5;
+}
+
+/* ── Card / panel ──────────────────────────────────────────────────────────── */
+.panel {
+  @apply bg-surface-800 rounded-xl border border-surface-600 shadow-card;
+}
+
+/* ── Tab styles ────────────────────────────────────────────────────────────── */
+.tab-btn {
+  @apply text-xs font-semibold px-4 py-2 rounded-md transition-all duration-150
+         text-gray-400 hover:text-white hover:bg-surface-700 cursor-pointer;
+}
+.tab-btn.active {
+  @apply bg-cobalt-500 text-white shadow-glow-sm;
+}
+
+/* ── Status badge ──────────────────────────────────────────────────────────── */
+.badge {
+  @apply inline-block text-xs font-semibold px-2 py-0.5 rounded-full;
+}
+.badge-issued   { @apply bg-cobalt-700 text-cobalt-100; }
+.badge-returned { @apply bg-emerald-700 text-emerald-100; }
+.badge-renewed  { @apply bg-amber-500/20 text-amber-400; }
+.badge-overdue  { @apply bg-rose-500/20 text-rose-400; }
+
+/* ── Glow separator ────────────────────────────────────────────────────────── */
+.glow-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, theme('colors.cobalt.500'), transparent);
+  opacity: 0.4;
+}
+
+/* ── Table ─────────────────────────────────────────────────────────────────── */
+.data-table {
+  @apply w-full text-xs border-collapse;
+}
+.data-table thead tr {
+  @apply border-b border-surface-600;
+}
+.data-table thead th {
+  @apply text-left py-2 px-3 text-cobalt-300 font-semibold uppercase tracking-wider text-[0.65rem];
+}
+.data-table tbody tr {
+  @apply border-b border-surface-700 hover:bg-surface-700/60 transition-colors duration-100;
+}
+.data-table tbody td {
+  @apply py-2 px-3 text-gray-200;
+}

@@ -1,0 +1,20 @@
+[package]
+name = "libsoft-tauri"
+version = "0.1.0"
+edition = "2021"
+description = "LibSoft — Library Management System (Tauri backend)"
+
+[lib]
+name = "libsoft_tauri_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.31.0", features = ["bundled"] }
+chrono = "0.4"
